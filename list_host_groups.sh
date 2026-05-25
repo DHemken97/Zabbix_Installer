@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# --- Configuration ---
-#ZABBIX_URL="http://10.0.42.2/api_jsonrpc.php"
-#ZABBIX_API_TOKEN="90f73691ffaf049dbade54197ead87cbf0bdd78f3102d1c2c26451bf9ee01b8f"
-
 # --- Usage Function ---
 usage() {
     echo "Usage: $0 [-f <filter_name>]"

@@ -14,9 +14,9 @@ fi
 ZABBIX_IP="10.0.42.2"
 
 # 3. Download helpers
-curl -s -o add_zabbix_host.sh "http://$ZABBIX_IP/scripts/add_zabbix_host.sh"
-curl -s -o get-distro.sh       "http://$ZABBIX_IP/scripts/get-distro.sh"
-curl -s -o zabbix_env.sh       "http://$ZABBIX_IP/scripts/zabbix_env.sh"
+curl -s -o add_zabbix_host.sh "$ZABBIX_INSTALL_REPO/add_zabbix_host.sh"
+curl -s -o get-distro.sh       "$ZABBIX_INSTALL_REPO/get-distro.sh"
+curl -s -o zabbix_env.sh       "$ZABBIX_INSTALL_REPO/zabbix_env.sh"
 
 chmod +x /tmp/zabbix-install/*.sh
 
@@ -25,7 +25,7 @@ chmod +x /tmp/zabbix-install/*.sh
 
 # 5. Run the Agent Installation FIRST
 # (This ensures the /etc/zabbix directory is safely created by the OS package manager)
-curl -s -o install_agent_2.sh "http://$ZABBIX_IP/scripts/installers/${MY_OS}.sh"
+curl -s -o install_agent_2.sh "$ZABBIX_INSTALL_REPO/installers/${MY_OS}.sh"
 chmod +x /tmp/zabbix-install/install_agent_2.sh
 /tmp/zabbix-install/install_agent_2.sh
 
@@ -44,7 +44,7 @@ TEMPLATE_CONF="/tmp/zabbix-install/zabbix_agent2.tmpl.conf" # The template you d
 TARGET_CONF="/etc/zabbix/zabbix_agent2.conf"               # The live production config
 
 # 8.1 Download your templated configuration file
-curl -s -o "$TEMPLATE_CONF" "http://$ZABBIX_IP/scripts/templates/zabbix_agent2.linux.conf"
+curl -s -o "$TEMPLATE_CONF" "$ZABBIX_INSTALL_REPO/templates/zabbix_agent2.linux.conf"
 
 # 8.2 Use sed to replace the placeholders with live environment variables
 sed -e "s|<ZABBIX_SERVER_IP>|$ZABBIX_IP|g" \
