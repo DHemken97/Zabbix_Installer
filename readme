@@ -1,0 +1,8 @@
+Linux
+
+curl -s http://10.0.42.2/scripts/install_and_configure.sh | bash
+
+OR
+
+wget -qO - http://10.0.42.2/scripts/install_and_configure.sh | bash
+
