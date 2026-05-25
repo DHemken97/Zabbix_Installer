@@ -19,7 +19,7 @@ curl -s -o get-distro.sh       "$ZABBIX_INSTALL_REPO/get-distro.sh"
 curl -s -o zabbix_env.sh       "$ZABBIX_INSTALL_REPO/zabbix_env.sh"
 
 chmod +x /tmp/zabbix-install/*.sh
-
+nano zabbix_env.sh
 # 4. Source environment variables (This dynamically triggers get-distro.sh)
 . ./zabbix_env.sh
 
